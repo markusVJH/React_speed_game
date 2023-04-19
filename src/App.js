@@ -5,6 +5,7 @@ class App extends Component {
   state = {
     score: 0,
     current: 0,
+    pace: 1000,
   }
 
   clickHandler = (circleId) => {
@@ -18,10 +19,15 @@ class App extends Component {
     do {
       nextActive = Math.floor(Math.random() * 4);
     } while (nextActive === this.state.current);
+    this.pace = this.pace - 30;
     this.setState({ current: nextActive });
-    console.log({nextActive})
+    this.timeoutId = setTimeout(this.nextActive, this.state.pace);
+    console.log({ nextActive });
   };
-
+  
+endGame = () => {
+  this.timeoutId = clearTimeout(this.nextActive, this.state.pace);
+}
   render() {
     const circles = [1,2,3,4]
 
@@ -39,8 +45,8 @@ class App extends Component {
             <Circle key={index} id={circleId} clicks={() => this.clickHandler(circleId)}/>
           ))}
         </div>
-        <button className="btn start" id="startButton">Start Game</button>
-        <button className="btn last" id="endButton">End Game</button>
+        <button className="btn start" id="startButton" onClick={this.nextActive}>Start Game</button>
+        <button className="btn last" id="endButton" onClick={this.endGame}>End Game</button>
       </div>
     );
   }
