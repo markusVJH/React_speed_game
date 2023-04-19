@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Circle from './Circle';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    score: 0,
+    current: 0,
+  }
+
+  clickHandler = (circleId) => {
+    console.log(`Clicked on circle ${circleId}`);
+    this.setState((prevState) => ({ score: prevState.score}));
+    this.nextActive();
+  };
+
+  nextActive = () => {
+    let nextActive;
+    do {
+      nextActive = Math.floor(Math.random() * 4);
+    } while (nextActive === this.state.current);
+    this.setState({ current: nextActive });
+    console.log({nextActive})
+  };
+
+  render() {
+    const circles = [1,2,3,4]
+
+
+    return (
+      <div className="main">
+        <header>
+          <h1>SPEED GAME!</h1>
+          <h2>How fast can you go without failing?</h2>
+          <h3>Click the highlighted circles!</h3>
+        </header>
+        <p>Current score: {this.state.score}</p>
+        <div className="circles">
+          {circles.map((circleId, index) => (
+            <Circle key={index} id={circleId} clicks={() => this.clickHandler(circleId)}/>
+          ))}
+        </div>
+        <button className="btn start" id="startButton">Start Game</button>
+        <button className="btn last" id="endButton">End Game</button>
+      </div>
+    );
+  }
 }
 
 export default App;
