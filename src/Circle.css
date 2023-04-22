@@ -13,3 +13,6 @@
   margin-left: 1rem;
   margin-right: 1rem;
 }
+.circle.active {
+  background-color: lightblue;
+}
