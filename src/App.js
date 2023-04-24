@@ -10,15 +10,14 @@ class App extends Component {
 
   clickHandler = (circleId) => {
     console.log(`Clicked on circle ${circleId}`);
-    if (circleId === this.state.current) {
-      this.setState((prevState) => ({ score: prevState.score +1}));
-    }
+    this.setState((prevState) => ({ score: prevState.score +1}));
+    
   };
 
   nextActive = () => {
     let nextActive;
     do {
-      nextActive = Math.floor(Math.random() * 4) + 1;
+      nextActive = Math.floor(Math.random() * 4);
     } while (nextActive === this.state.current);
     this.setState((prevState) => ({ current: nextActive, pace: prevState.pace - 30 }));
     this.timeoutId = setTimeout(this.nextActive, this.state.pace);
@@ -34,7 +33,7 @@ class App extends Component {
   }
 
   render() {
-    const circles = [1,2,3,4]
+    const circles = [0,1,2,3]
 
     return (
       <div className="main">
@@ -46,15 +45,10 @@ class App extends Component {
         <p>Current score: {this.state.score}</p>
         <div className="circles">
           {circles.map((circleId, index) => (
-            <Circle 
-              key={index} 
-              id={circleId} 
-              isActive={circleId === this.state.current} 
-              color={circleId === this.state.current ? "lightblue" : "gray"} 
-              clicks={() => this.clickHandler(circleId)}
-            />
-          ))}
+          <Circle key={index} id={circleId} clicks={() => this.clickHandler(circleId)} current={this.state.current}/>
+           ))}
         </div>
+
         <button className="btn start" id="startButton" onClick={this.startGame}>Start Game</button>
         <button className="btn last" id="endButton" onClick={this.endGame}>End Game</button>
       </div>
