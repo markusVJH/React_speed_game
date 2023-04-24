@@ -56,7 +56,10 @@ class App extends Component {
 
   endGame = () => {
     clearTimeout(this.timeoutId);
-    this.setState({ showGameOver: true });
+    this.setState({ 
+      showGameOver: true,
+      gameRunning: false,
+     });
   };
 
   handleClose = () => {
@@ -64,6 +67,10 @@ class App extends Component {
   };
 
   startGame = () => {
+    this.setState({ 
+      score: 0,
+      pace: 1000
+     });
     this.nextActive();
   };
 
