@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to bottom left, #000000, #070066);
+  background: linear-gradient(to bottom left, #000000, #b3aeff);
   font-family: "Nova Mono", monospace;
   height: 100vh;
   color: white;
@@ -40,7 +40,4 @@ body {
 header {
   gap: 2rem;
   padding-bottom: 5rem;
-}
-#endButton {
-  /*  display: none; */
 }

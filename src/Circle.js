@@ -2,9 +2,15 @@ import React from 'react';
 import './Circle.css';
 
 const Circle = (props) => {
-  const circleClass = props.id === props.current ? "circle active" : "circle";
+  const { id, color, active, clicks } = props;
+
   return (
-    <button className={circleClass} id={`circle${props.id}`} onClick={props.clicks}></button> 
+    <button
+      className={`circle ${active ? 'active' : ''}`}
+      style={{ backgroundColor: active ? 'white' : color }}
+      id={`circle-${id}`}
+      onClick={clicks}
+    ></button>
   );
 };
 
