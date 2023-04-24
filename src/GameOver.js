@@ -8,7 +8,7 @@ const GameOver = ({ score, onClose }) => {
         <h2>Game Over!</h2>
         <p>Final score: {score}</p>
         <button className="close-btn" onClick={onClose}>
-          Close
+          Play again
         </button>
       </div>
     </div>

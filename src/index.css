@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to bottom left, #34006b, #000000);
+  background: linear-gradient(#34006b,rgb(0, 0, 0));
   font-family: "Nova Mono", monospace;
   height: 100vh;
   color: rgb(255, 255, 255);
@@ -22,6 +22,12 @@ body {
   font-size: inherit;
   color: white;
   cursor: pointer;
+}
+h1 {
+ font-size:  4rem;
+}
+p{
+  font-size: 1.5rem;
 }
 button.active {
   cursor: pointer;

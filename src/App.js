@@ -7,7 +7,7 @@ import scoreSound from './scoreSound.wav';
 class App extends Component {
   state = {
     score: 0,
-    current: 0,
+    current: null,
     pace: 1000,
     colors: ['darkblue', 'darkred', 'darkgreen', '#8B8000'],
     showGameOver: false,
@@ -52,7 +52,6 @@ class App extends Component {
       clicked: [false, false, false, false]
     }));
     this.timeoutId = setTimeout(this.nextActive, this.state.pace);
-    console.log({ nextActive });
     if (this.state.rounds === 5) {
       this.endGame();
     }
@@ -63,19 +62,20 @@ class App extends Component {
     this.setState({ 
       showGameOver: true,
       gameRunning: false,
-      rounds: 0
+      rounds: 0,
+      current: null
      });
   };
 
   handleClose = () => {
-    this.setState({ showGameOver: false });
+    this.setState({ 
+      showGameOver: false,
+      score: 0,
+      pace: 1000
+    });
   };
 
   startGame = () => {
-    this.setState({ 
-      score: 0,
-      pace: 1000
-     });
     this.nextActive();
   };
 
