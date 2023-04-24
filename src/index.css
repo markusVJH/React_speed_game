@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to bottom left, #000000, #b3aeff);
+  background: linear-gradient(to bottom left, #ffffff, #b3aeff);
   font-family: "Nova Mono", monospace;
   height: 100vh;
-  color: white;
+  color: rgb(0, 0, 0);
   text-shadow: 0 0 10px #cafbff, 0 0 20px #cafbff, 0 0 30px #cafbff,
     0 0 40px #cafbff, 0 0 50px #cafbff, 0 0 60px #cafbff, 0 0 70px #cafbff;
 }

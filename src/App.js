@@ -8,18 +8,25 @@ class App extends Component {
     score: 0,
     current: 0,
     pace: 1000,
-    colors: ['blue', 'red', 'green', 'yellow'],
+    colors: ['darkblue', 'darkred', 'darkgreen', '#8B8000'],
     showGameOver: false,
     rounds: 0,
-    gameRunning: false
+    gameRunning: false,
+    clicked: [false, false, false, false]
   };
 
   clickHandler = (circleId) => {
     if (this.state.current === circleId - 1) {
-      this.setState((prevState) => ({
-        score: prevState.score + 1,
-        rounds: 0
-      }));
+      if (!this.state.clicked[circleId - 1]) {
+        this.setState((prevState) => ({
+          score: prevState.score + 1,
+          rounds: 0,
+          clicked: {
+            ...prevState.clicked,
+            [circleId - 1]: true
+          }
+        }));
+      }
     } else {
       this.setState((prevState) => ({
         rounds: prevState.rounds + 1
@@ -37,7 +44,8 @@ class App extends Component {
       current: nextActive,
       pace: prevState.pace - 30,
       rounds: prevState.rounds + 1,
-      gameRunning: true
+      gameRunning: true,
+      clicked: [false, false, false, false]
     }));
     this.timeoutId = setTimeout(this.nextActive, this.state.pace);
     console.log({ nextActive });
@@ -78,6 +86,8 @@ class App extends Component {
               color={this.state.colors[index]}
               active={this.state.current === index}
               clicks={() => this.clickHandler(circleId)}
+              gameRunning={this.state.gameRunning}
+             clicked={this.state.clicked[index]}
             />
           ))}
         </div>
@@ -87,7 +97,7 @@ class App extends Component {
         <button className="btn start" id="startButton" onClick={this.startGame} disabled={this.state.gameRunning}>
           Start Game
         </button>
-        <button className="btn last" id="endButton" onClick={this.endGame}>
+        <button className="btn last" id="endButton" onClick={this.endGame} disabled={!this.state.gameRunning}>
           End Game
         </button>
       </div>
