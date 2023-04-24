@@ -4,17 +4,21 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to bottom left, #0d001b, #000000);
+  background: linear-gradient(to bottom left, #34006b, #000000);
   font-family: "Nova Mono", monospace;
   height: 100vh;
   color: rgb(255, 255, 255);
 }
+.buttons {
+  display: flex;
+  gap: 4rem;
+}
 .btn {
   padding: 0.5rem;
-  border-radius: 20px;
+  border-radius: 5px;
   border-style: none;
   font-family: inherit;
-  width: 15rem;
+  width: 10rem;
   font-size: inherit;
   color: white;
   cursor: pointer;

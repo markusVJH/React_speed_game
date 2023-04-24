@@ -63,6 +63,7 @@ class App extends Component {
     this.setState({ 
       showGameOver: true,
       gameRunning: false,
+      rounds: 0
      });
   };
 
