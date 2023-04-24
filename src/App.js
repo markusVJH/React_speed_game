@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Circle from './Circle';
 import './App.css';
 import GameOver from './GameOver';
+import scoreSound from './scoreSound.wav';
 
 class App extends Component {
   state = {
@@ -12,19 +13,21 @@ class App extends Component {
     showGameOver: false,
     rounds: 0,
     gameRunning: false,
-    clicked: [false, false, false, false]
+    clicked: [false, false, false, false],
+    soundEffect: new Audio(scoreSound)
   };
 
   clickHandler = (circleId) => {
     if (this.state.current === circleId - 1) {
       if (!this.state.clicked[circleId - 1]) {
+        this.state.soundEffect.play();
         this.setState((prevState) => ({
           score: prevState.score + 1,
           rounds: 0,
           clicked: {
             ...prevState.clicked,
             [circleId - 1]: true
-          }
+          },
         }));
       }
     } else {
@@ -34,6 +37,7 @@ class App extends Component {
       this.endGame();
     }
   };
+  
   
   nextActive = () => {
     let nextActive;
@@ -81,8 +85,6 @@ class App extends Component {
       <div className="main">
         <header>
           <h1>SPEED GAME!</h1>
-          <h2>How fast can you go without failing?</h2>
-          <h3>Click the highlighted circles!</h3>
         </header>
         <p>Current score: {this.state.score}</p>
         <div className="circles">
@@ -101,12 +103,14 @@ class App extends Component {
         {this.state.showGameOver && (
           <GameOver score={this.state.score} onClose={this.handleClose} />
         )}
+        <div className="buttons">
         <button className="btn start" id="startButton" onClick={this.startGame} disabled={this.state.gameRunning}>
           Start Game
         </button>
         <button className="btn last" id="endButton" onClick={this.endGame} disabled={!this.state.gameRunning}>
           End Game
         </button>
+        </div>
       </div>
     );
   }

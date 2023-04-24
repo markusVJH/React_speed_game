@@ -4,24 +4,29 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to bottom left, #ffffff, #b3aeff);
+  background: linear-gradient(to bottom left, #0d001b, #000000);
   font-family: "Nova Mono", monospace;
   height: 100vh;
-  color: rgb(0, 0, 0);
-  text-shadow: 0 0 10px #cafbff, 0 0 20px #cafbff, 0 0 30px #cafbff,
-    0 0 40px #cafbff, 0 0 50px #cafbff, 0 0 60px #cafbff, 0 0 70px #cafbff;
+  color: rgb(255, 255, 255);
 }
 .btn {
   padding: 0.5rem;
-  background-color: hsla(0, 0%, 0%, 0.277);
-  border-radius: 100%;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: 0 0 10px #cafbff, 0 0 20px #cafbff, 0 0 30px;
+  border-radius: 20px;
+  border-style: none;
   font-family: inherit;
   width: 15rem;
   font-size: inherit;
   color: white;
+  cursor: pointer;
+}
+button.active {
+  cursor: pointer;
+}
+.btn.start {
+  background-color: green;
+}
+.btn.last {
+  background-color: red;
 }
 .main {
   width: 100%;
@@ -34,8 +39,8 @@ body {
 }
 .circles {
   display: flex;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
 }
 header {
   gap: 2rem;
