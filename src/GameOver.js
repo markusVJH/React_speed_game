@@ -18,7 +18,7 @@ if(score < 5){
         <h2>Game Over!</h2>
         <p className="score">Final score: {score}</p>
         <p className="message">{message}</p>
-        <button className="close-btn" onClick={onClose}>
+        <button className="btn close" onClick={onClose}>
           Play again
         </button>
       </div>

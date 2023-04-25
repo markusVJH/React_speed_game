@@ -24,6 +24,10 @@ body {
   font-size: inherit;
   color: white;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.btn:hover {
+  filter: brightness(150%);
 }
 h1 {
   font-size: 4rem;
@@ -49,7 +53,6 @@ button.active {
 .btn.diff.active {
   border-style: solid;
   border-color: yellow;
-  filter: contrast(200%);
 }
 .btn.diff.easy {
   background-color: lightgreen;

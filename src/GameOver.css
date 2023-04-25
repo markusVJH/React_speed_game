@@ -40,7 +40,7 @@
   color: green;
 }
 
-.close-btn {
+.btn.close {
   margin-top: 10px;
   padding: 5px 10px;
   border-radius: 5px;

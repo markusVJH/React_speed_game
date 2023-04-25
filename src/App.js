@@ -15,8 +15,8 @@ class App extends Component {
     gameRunning: false,
     clicked: [false, false, false, false],
     soundEffect: new Audio(scoreSound),
-    circleAmount: 3,
-    selectedDifficulty: 'easy'
+    circleAmount: null,
+    selectedDifficulty: null
   };
 
   easyHandler = () => {
@@ -105,6 +105,12 @@ class App extends Component {
     const { circleAmount } = this.state;
     const circles = Array.from({ length: circleAmount }, (_, index) => index + 1);
     const { selectedDifficulty } = this.state;
+    let startDisplay = true
+
+    if (selectedDifficulty !== null) {
+      startDisplay = false;
+    }
+
 
     return (
       <div className="main">
@@ -113,12 +119,15 @@ class App extends Component {
         </header>
         <div className="difficulty">
           <h3>Select difficulty!</h3>
-          <button className={`btn diff easy ${selectedDifficulty === 'easy' ? 'active' : ''}`}
-          onClick={this.easyHandler}>Easy</button>
-          <button className={`btn diff medium ${selectedDifficulty === 'medium' ? 'active' : ''}`}
-          onClick={this.mediumHandler}>Medium</button>
-          <button className={`btn diff hard ${selectedDifficulty === 'hard' ? 'active' : ''}`}
-          onClick={this.hardHandler}>Hard</button>
+          <button className={`btn diff easy 
+          ${selectedDifficulty === 'easy' ? 'active' : ''}`}
+          onClick={this.easyHandler} disabled={this.state.gameRunning}>Easy</button>
+          <button className={`btn diff medium 
+          ${selectedDifficulty === 'medium' ? 'active' : ''}`}
+          onClick={this.mediumHandler} disabled={this.state.gameRunning}>Medium</button>
+          <button className={`btn diff hard 
+          ${selectedDifficulty === 'hard' ? 'active' : ''}`}
+          onClick={this.hardHandler} disabled={this.state.gameRunning}>Hard</button>
         </div>
         <p>Current score: {this.state.score}</p>
         <div className="circles">
@@ -138,10 +147,15 @@ class App extends Component {
           <GameOver score={this.state.score} onClose={this.handleClose} />
         )}
         <div className="buttons">
-        <button className="btn start" id="startButton" onClick={this.startGame} style={{display: this.state.gameRunning ? "none" : "block"}}>
+        <button className="btn start" id="startButton"
+                onClick={this.startGame} 
+                style={{display: this.state.gameRunning ? "none" : "block"}}
+                disabled={startDisplay}>
           Start Game
         </button>
-        <button className="btn last" id="endButton" onClick={this.endGame} style={{display: this.state.gameRunning ? "block" : "none"}}>
+        <button className="btn last" id="endButton" 
+                onClick={this.endGame} 
+                style={{display: this.state.gameRunning ? "block" : "none"}}>
           End Game
         </button>
         </div>
