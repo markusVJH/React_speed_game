@@ -17,6 +17,17 @@ class App extends Component {
     soundEffect: new Audio(scoreSound)
   };
 
+  hardHandler = () => {
+    this.setState({ 
+     pace: 500
+     });
+  }
+  mediumHandler = () => {
+    this.setState({ 
+      pace: 750
+      });
+  }
+
   clickHandler = (circleId) => {
     if (this.state.current === circleId - 1) {
       if (!this.state.clicked[circleId - 1]) {
@@ -88,6 +99,12 @@ class App extends Component {
         <header>
           <h1>SPEED GAME!</h1>
         </header>
+        <div className="difficulty">
+          <h3>Select difficulty!</h3>
+          <button className="btn diff easy" >Easy</button>
+          <button className="btn diff medium">Medium</button>
+          <button className="btn diff hard" onClick={this.hardHandler}>Hard</button>
+        </div>
         <p>Current score: {this.state.score}</p>
         <div className="circles">
           {circles.map((circleId, index) => (

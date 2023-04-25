@@ -42,6 +42,22 @@ button.active {
   background-color: red;
   position: absolute;
 }
+.btn.diff {
+  color: black;
+  margin-left: 1rem;
+}
+.btn.diff.easy {
+  background-color: lightgreen;
+}
+.btn.diff.medium {
+  background-color: #dbbaff;
+}
+.btn.diff {
+  background-color: rgb(255, 157, 157);
+}
+.difficulty {
+  padding-bottom: 4rem;
+}
 .main {
   width: 100%;
   display: flex;
@@ -58,5 +74,5 @@ button.active {
 }
 header {
   gap: 2rem;
-  padding-bottom: 5rem;
+  padding-bottom: 1.5rem;
 }

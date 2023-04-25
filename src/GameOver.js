@@ -1,8 +1,6 @@
 import React from 'react';
 import './GameOver.css';
 
-
-
 const GameOver = ({ score, onClose }) => {
   let message;
 if(score < 5){
@@ -14,8 +12,6 @@ if(score < 5){
 } else {
   message = 'Over 20! Fantastic!';
 }
-
-console.log({message})
   return (
     <div className="overlay">
       <div className="popup">

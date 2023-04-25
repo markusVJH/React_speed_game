@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(to top right, #34006b, rgb(0, 0, 0));
+  background: linear-gradient(to bottom, #34006b, rgb(0, 0, 0));
   padding: 20px;
   text-align: center;
   color: rgb(255, 255, 255);
