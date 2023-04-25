@@ -129,7 +129,7 @@ class App extends Component {
           ${selectedDifficulty === 'hard' ? 'active' : ''}`}
           onClick={this.hardHandler} disabled={this.state.gameRunning}>Hard</button>
         </div>
-        <p>Current score: {this.state.score}</p>
+        <p style={startDisplay}>Current score: {this.state.score}</p>
         <div className="circles">
           {circles.map((circleId, index) => (
             <Circle

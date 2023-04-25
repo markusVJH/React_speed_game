@@ -4,9 +4,7 @@
   width: 15vh;
   background: #00a6bc;
   padding: 2rem;
-  border: solid;
-  border-color: white;
-  border-width: 1px;
+  border-color: rgb(255, 255, 255);
   border-radius: 100%;
   align-items: center;
   justify-content: center;
