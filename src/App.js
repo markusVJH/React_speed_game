@@ -105,10 +105,10 @@ class App extends Component {
     const { circleAmount } = this.state;
     const circles = Array.from({ length: circleAmount }, (_, index) => index + 1);
     const { selectedDifficulty } = this.state;
-    let startDisplay = true
+    let startDisplay = {display: 'none'}
 
     if (selectedDifficulty !== null) {
-      startDisplay = false;
+      startDisplay = {display: 'block'}
     }
 
 
@@ -146,11 +146,11 @@ class App extends Component {
         {this.state.showGameOver && (
           <GameOver score={this.state.score} onClose={this.handleClose} />
         )}
-        <div className="buttons">
+        <div className="buttons" style={startDisplay} >
         <button className="btn start" id="startButton"
                 onClick={this.startGame} 
                 style={{display: this.state.gameRunning ? "none" : "block"}}
-                disabled={startDisplay}>
+                >
           Start Game
         </button>
         <button className="btn last" id="endButton" 

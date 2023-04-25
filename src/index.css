@@ -40,11 +40,9 @@ button.active {
 }
 .btn.start {
   background-color: green;
-  position: absolute;
 }
 .btn.last {
   background-color: red;
-  position: absolute;
 }
 .btn.diff {
   color: black;
