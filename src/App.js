@@ -106,10 +106,10 @@ class App extends Component {
           <GameOver score={this.state.score} onClose={this.handleClose} />
         )}
         <div className="buttons">
-        <button className="btn start" id="startButton" onClick={this.startGame} disabled={this.state.gameRunning}>
+        <button className="btn start" id="startButton" onClick={this.startGame} style={{display: this.state.gameRunning ? "none" : "block"}}>
           Start Game
         </button>
-        <button className="btn last" id="endButton" onClick={this.endGame} disabled={!this.state.gameRunning}>
+        <button className="btn last" id="endButton" onClick={this.endGame} style={{display: this.state.gameRunning ? "block" : "none"}}>
           End Game
         </button>
         </div>

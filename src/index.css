@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(#34006b,rgb(0, 0, 0));
+  background: linear-gradient(to top, #34006b, rgb(0, 0, 0));
   font-family: "Nova Mono", monospace;
   height: 100vh;
   color: rgb(255, 255, 255);
@@ -12,6 +12,8 @@ body {
 .buttons {
   display: flex;
   gap: 4rem;
+  position: relative;
+  justify-content: center;
 }
 .btn {
   padding: 0.5rem;
@@ -24,9 +26,9 @@ body {
   cursor: pointer;
 }
 h1 {
- font-size:  4rem;
+  font-size: 4rem;
 }
-p{
+p {
   font-size: 1.5rem;
 }
 button.active {
@@ -34,9 +36,11 @@ button.active {
 }
 .btn.start {
   background-color: green;
+  position: absolute;
 }
 .btn.last {
   background-color: red;
+  position: absolute;
 }
 .main {
   width: 100%;
