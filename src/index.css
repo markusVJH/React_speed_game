@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to bottom, #602cc1, rgb(0, 0, 0));
+  background: linear-gradient(to bottom, rgb(39, 0, 51), rgb(20, 0, 26));
   font-family: "Nova Mono", monospace;
   height: 100vh;
   color: rgb(255, 255, 255);
@@ -63,6 +63,9 @@ button.active {
 }
 .difficulty {
   padding-bottom: 4rem;
+}
+.difficulty h3 {
+  padding-bottom: 1rem;
 }
 .main {
   width: 100%;

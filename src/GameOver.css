@@ -19,14 +19,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #34006b, rgb(0, 0, 0));
+  background: linear-gradient(to bottom, #34006b9f, rgba(0, 0, 0, 0.658));
   padding: 20px;
   text-align: center;
   color: rgb(255, 255, 255);
   width: 50vw;
   height: 50vh;
   border-style: solid;
-  border-color: green;
+  border-color: lightgreen;
   border-width: 2px;
 }
 .score {
@@ -37,7 +37,7 @@
 }
 .popup h2 {
   font-size: 3rem;
-  color: green;
+  color: lightgreen;
 }
 
 .btn.close {
