@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to top, #34006b, rgb(0, 0, 0));
+  background: linear-gradient(to top, #5700b3, rgb(0, 0, 0));
   font-family: "Nova Mono", monospace;
   height: 100vh;
   color: rgb(255, 255, 255);
@@ -45,6 +45,11 @@ button.active {
 .btn.diff {
   color: black;
   margin-left: 1rem;
+}
+.btn.diff.active {
+  border-style: solid;
+  border-color: yellow;
+  filter: contrast(200%);
 }
 .btn.diff.easy {
   background-color: lightgreen;

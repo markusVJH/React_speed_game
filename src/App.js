@@ -14,18 +14,28 @@ class App extends Component {
     rounds: 0,
     gameRunning: false,
     clicked: [false, false, false, false],
-    soundEffect: new Audio(scoreSound)
+    soundEffect: new Audio(scoreSound),
+    circleAmount: 3,
+    selectedDifficulty: 'easy'
   };
 
-  hardHandler = () => {
+  easyHandler = () => {
     this.setState({ 
-     pace: 500
-     });
-  }
+      circleAmount: 3,
+      selectedDifficulty: 'easy',
+      });
+  };
   mediumHandler = () => {
     this.setState({ 
-      pace: 750
+      circleAmount: 4,
+      selectedDifficulty: 'medium',
       });
+  }
+  hardHandler = () => {
+    this.setState({ 
+     circleAmount: 5,
+     selectedDifficulty: 'hard',
+     });
   }
 
   clickHandler = (circleId) => {
@@ -54,7 +64,7 @@ class App extends Component {
   nextActive = () => {
     let nextActive;
     do {
-      nextActive = Math.floor(Math.random() * 4);
+      nextActive = Math.floor(Math.random() * this.state.circleAmount);
     } while (nextActive === this.state.current);
     this.setState((prevState) => ({
       current: nextActive,
@@ -92,7 +102,9 @@ class App extends Component {
   };
 
   render() {
-    const circles = [1, 2, 3, 4];
+    const { circleAmount } = this.state;
+    const circles = Array.from({ length: circleAmount }, (_, index) => index + 1);
+    const { selectedDifficulty } = this.state;
 
     return (
       <div className="main">
@@ -101,9 +113,12 @@ class App extends Component {
         </header>
         <div className="difficulty">
           <h3>Select difficulty!</h3>
-          <button className="btn diff easy" >Easy</button>
-          <button className="btn diff medium">Medium</button>
-          <button className="btn diff hard" onClick={this.hardHandler}>Hard</button>
+          <button className={`btn diff easy ${selectedDifficulty === 'easy' ? 'active' : ''}`}
+          onClick={this.easyHandler}>Easy</button>
+          <button className={`btn diff medium ${selectedDifficulty === 'medium' ? 'active' : ''}`}
+          onClick={this.mediumHandler}>Medium</button>
+          <button className={`btn diff hard ${selectedDifficulty === 'hard' ? 'active' : ''}`}
+          onClick={this.hardHandler}>Hard</button>
         </div>
         <p>Current score: {this.state.score}</p>
         <div className="circles">
