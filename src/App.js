@@ -35,14 +35,16 @@ class App extends Component {
     this.setState({ 
       circleAmount: 5,
       selectedDifficulty: 'medium',
-      diffTitle: 'Medium mode'
+      diffTitle: 'Medium mode',
+      pace: 910
       });
   }
   hardHandler = () => {
     this.setState({ 
      circleAmount: 7,
      selectedDifficulty: 'hard',
-     diffTitle: 'Hard mode'
+     diffTitle: 'Hard mode',
+     pace: 880
      });
   }
 
