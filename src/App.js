@@ -74,7 +74,7 @@ class App extends Component {
       clicked: [false, false, false, false]
     }));
     this.timeoutId = setTimeout(this.nextActive, this.state.pace);
-    if (this.state.rounds === 5) {
+    if (this.state.rounds === 3) {
       this.endGame();
     }
   };
