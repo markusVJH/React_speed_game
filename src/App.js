@@ -3,6 +3,8 @@ import Circle from './components/Circle';
 import './App.css';
 import GameOver from './components/GameOver';
 import scoreSound from './scoreSound.wav';
+import music from './music.wav';
+import end from './end.wav';
 
 class App extends Component {
   state = {
@@ -15,6 +17,8 @@ class App extends Component {
     gameRunning: false,
     clicked: [false, false, false, false],
     soundEffect: new Audio(scoreSound),
+    music: new Audio(music),
+    end: new Audio(end),
     circleAmount: null,
     selectedDifficulty: null,
     diffTitle: null
@@ -85,11 +89,13 @@ class App extends Component {
 
   endGame = () => {
     clearTimeout(this.timeoutId);
+    this.state.music.pause();
+    this.state.end.play();
     this.setState({ 
       showGameOver: true,
       gameRunning: false,
       rounds: 0,
-      current: null
+      current: null,
      });
   };
 
@@ -104,6 +110,10 @@ class App extends Component {
   };
 
   startGame = () => {
+    const volume = 0.5;
+    const musicA = this.state.music
+    musicA.volume = volume;
+    musicA.play();
     this.nextActive();
   };
 
