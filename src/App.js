@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Circle from './Circle';
+import Circle from './components/Circle';
 import './App.css';
-import GameOver from './GameOver';
+import GameOver from './components/GameOver';
 import scoreSound from './scoreSound.wav';
 
 class App extends Component {
