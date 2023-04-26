@@ -59,9 +59,10 @@ button.active {
 }
 .difficulty {
   padding-bottom: 4rem;
+  padding-top: 4.5vh;
 }
 .difficulty h3 {
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 .diffTitle {
   padding-bottom: 1rem;

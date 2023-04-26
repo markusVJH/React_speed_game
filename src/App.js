@@ -98,7 +98,8 @@ class App extends Component {
       showGameOver: false,
       score: 0,
       pace: 1000,
-      selectedDifficulty: null
+      selectedDifficulty: null,
+      startDisplay: { display: 'none' }
     });
   };
 
@@ -126,15 +127,17 @@ class App extends Component {
         {showDifficulty && (
         <div className="difficulty">
           <h3>Select difficulty!</h3>
-          <button className={`btn diff easy`}
+          <button className="btn diff easy"
           onClick={this.easyHandler} disabled={this.state.gameRunning}>Easy</button>
-          <button className={`btn diff medium`}
+          <button className="btn diff medium"
           onClick={this.mediumHandler} disabled={this.state.gameRunning}>Medium</button>
-          <button className={`btn diff hard`}
+          <button className="btn diff hard"
           onClick={this.hardHandler} disabled={this.state.gameRunning}>Hard</button>
         </div>
       )}
-      <h2 className="diffTitle" style={startDisplay}>{this.state.diffTitle}</h2>
+        <h2 className="diffTitle" style={startDisplay}>
+          {this.state.diffTitle}
+        </h2>
         <p style={startDisplay}>Score: {this.state.score}</p>
         <div className="circles" style={startDisplay}>
           {circles.map((circleId, index) => (
