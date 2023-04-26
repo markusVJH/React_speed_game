@@ -11,7 +11,7 @@ class App extends Component {
     score: 0,
     current: null,
     pace: 1000,
-    colors: ['darkblue', 'darkred', 'darkgreen', '#8B8000', '#00a6bc', 'darkgrey', 'darkblue'],
+    colors: ['darkblue', 'darkred', 'darkgreen', '#8B8000', '#00a6bc', 'darkred', 'darkblue'],
     showGameOver: false,
     rounds: 0,
     gameRunning: false,
@@ -104,7 +104,6 @@ class App extends Component {
       showGameOver: false,
       score: 0,
       pace: 1000,
-      selectedDifficulty: null,
       startDisplay: { display: 'none' }
     });
   };
@@ -122,7 +121,6 @@ class App extends Component {
     const circles = Array.from({ length: circleAmount }, (_, index) => index + 1);
     const { selectedDifficulty } = this.state;
     let startDisplay = {display: 'none'};
-    const showDifficulty = selectedDifficulty === null;
 
     if (selectedDifficulty !== null) {
       startDisplay = {display: 'flex'}
@@ -134,22 +132,26 @@ class App extends Component {
         <header>
           <h1>SPEED GAME!</h1>
         </header>
-        {showDifficulty && (
         <div className="difficulty">
-          <h3>Select difficulty!</h3>
-          <button className="btn diff easy"
-          onClick={this.easyHandler} disabled={this.state.gameRunning}>Easy</button>
-          <button className="btn diff medium"
-          onClick={this.mediumHandler} disabled={this.state.gameRunning}>Medium</button>
-          <button className="btn diff hard"
-          onClick={this.hardHandler} disabled={this.state.gameRunning}>Hard</button>
+          <h3>Choose difficulty!</h3>
+            <button className={`btn diff easy 
+              ${this.state.selectedDifficulty === 'easy' ? 'selected' : ''}`}
+              onClick={this.easyHandler} disabled={this.state.gameRunning}>
+              Easy
+            </button>
+            <button className={`btn diff medium 
+              ${this.state.selectedDifficulty === 'medium' ? 'selected' : ''}`}
+              onClick={this.mediumHandler} disabled={this.state.gameRunning}>
+              Medium
+            </button>
+            <button className={`btn diff hard 
+            ${this.state.selectedDifficulty === 'hard' ? 'selected' : ''}`}
+            onClick={this.hardHandler} disabled={this.state.gameRunning}>
+            Hard
+            </button>
         </div>
-      )}
-        <h2 className="diffTitle" style={startDisplay}>
-          {this.state.diffTitle}
-        </h2>
         <p style={startDisplay}>Score: {this.state.score}</p>
-        <div className="circles" style={startDisplay}>
+        <div className="circles">
           {circles.map((circleId, index) => (
             <Circle
               key={index}
