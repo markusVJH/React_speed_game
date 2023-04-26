@@ -11,7 +11,7 @@ class App extends Component {
     score: 0,
     current: null,
     pace: 1000,
-    colors: ['darkblue', 'darkred', 'darkgreen', '#8B8000'],
+    colors: ['darkblue', 'darkred', 'darkgreen', '#8B8000', '#00a6bc', 'darkgrey', 'darkblue'],
     showGameOver: false,
     rounds: 0,
     gameRunning: false,
@@ -33,14 +33,14 @@ class App extends Component {
   };
   mediumHandler = () => {
     this.setState({ 
-      circleAmount: 4,
+      circleAmount: 5,
       selectedDifficulty: 'medium',
       diffTitle: 'Medium mode'
       });
   }
   hardHandler = () => {
     this.setState({ 
-     circleAmount: 5,
+     circleAmount: 7,
      selectedDifficulty: 'hard',
      diffTitle: 'Hard mode'
      });
@@ -110,7 +110,7 @@ class App extends Component {
   };
 
   startGame = () => {
-    const volume = 0.5;
+    const volume = 0.35;
     const musicA = this.state.music
     musicA.volume = volume;
     musicA.play();
