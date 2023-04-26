@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Circle from './components/Circle';
 import './App.css';
 import GameOver from './components/GameOver';
-import scoreSound from './scoreSound.wav';
-import music from './music.wav';
-import end from './end.wav';
+import scoreSound from './sounds/scoreSound.wav';
+import music from './sounds/music.wav';
+import end from './sounds/end.wav';
 
 class App extends Component {
   state = {
@@ -67,7 +67,6 @@ class App extends Component {
       this.endGame();
     }
   };
-  
   
   nextActive = () => {
     let nextActive;
@@ -133,7 +132,6 @@ class App extends Component {
           <h1>SPEED GAME!</h1>
         </header>
         <div className="difficulty">
-          <h3>Choose difficulty!</h3>
             <button className={`btn diff easy 
               ${this.state.selectedDifficulty === 'easy' ? 'selected' : ''}`}
               onClick={this.easyHandler} disabled={this.state.gameRunning}>
@@ -150,7 +148,7 @@ class App extends Component {
             Hard
             </button>
         </div>
-        <p style={startDisplay}>Score: {this.state.score}</p>
+        <p style={startDisplay}className="score">Score: {this.state.score} </p>
         <div className="circles">
           {circles.map((circleId, index) => (
             <Circle

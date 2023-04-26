@@ -9,9 +9,12 @@ body {
   height: 100vh;
   color: rgb(255, 255, 255);
 }
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .buttons {
   display: flex;
-  gap: 4rem;
   position: relative;
   justify-content: center;
 }
@@ -70,7 +73,10 @@ button.active {
 }
 .selected {
   border: 3px solid #FFD700;
-  box-shadow: 0px 0px 10px #FFD700;
+  box-shadow: 0px 0px 15px #FFD700;
+}
+.score {
+  text-shadow: 0px 0px 25px #ffffff;
 }
 .main {
   width: 100%;
@@ -85,6 +91,7 @@ button.active {
   display: flex;
   padding-top: 2.5rem;
   padding-bottom: 5.5rem;
+  flex-wrap: wrap;
 }
 header {
   gap: 2rem;

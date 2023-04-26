@@ -4,7 +4,7 @@ import './Circle.css';
 const Circle = (props) => {
   const { id, color, active, clicks } = props;
 
-  const brightness = active ? 'saturate(520%)' : 'brightness(70%)';
+  const brightness = active ? 'saturate(520%)' : 'brightness(50%)';
   const circleStyle = {
     backgroundColor: color,
     filter: brightness
