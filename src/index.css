@@ -48,10 +48,6 @@ button.active {
   color: black;
   margin-left: 1rem;
 }
-.btn.diff.active {
-  border-style: solid;
-  border-color: yellow;
-}
 .btn.diff.easy {
   background-color: lightgreen;
 }
