@@ -63,6 +63,9 @@ button.active {
 .difficulty h3 {
   padding-bottom: 1rem;
 }
+.diffTitle {
+  padding-bottom: 1rem;
+}
 .main {
   width: 100%;
   display: flex;

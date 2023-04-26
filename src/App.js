@@ -75,7 +75,7 @@ class App extends Component {
       pace: prevState.pace - 30,
       rounds: prevState.rounds + 1,
       gameRunning: true,
-      clicked: [false, false, false, false]
+      clicked: Array(this.state.circleAmount).fill(false)
     }));
     this.timeoutId = setTimeout(this.nextActive, this.state.pace);
     if (this.state.rounds === 3) {
@@ -97,7 +97,8 @@ class App extends Component {
     this.setState({ 
       showGameOver: false,
       score: 0,
-      pace: 1000
+      pace: 1000,
+      selectedDifficulty: null
     });
   };
 
@@ -113,7 +114,7 @@ class App extends Component {
     const showDifficulty = selectedDifficulty === null;
 
     if (selectedDifficulty !== null) {
-      startDisplay = {display: 'block'}
+      startDisplay = {display: 'flex'}
     }
 
 
@@ -133,9 +134,9 @@ class App extends Component {
           onClick={this.hardHandler} disabled={this.state.gameRunning}>Hard</button>
         </div>
       )}
-      <h2>{this.state.diffTitle}</h2>
+      <h2 className="diffTitle" style={startDisplay}>{this.state.diffTitle}</h2>
         <p style={startDisplay}>Score: {this.state.score}</p>
-        <div className="circles">
+        <div className="circles" style={startDisplay}>
           {circles.map((circleId, index) => (
             <Circle
               key={index}
