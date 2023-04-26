@@ -1,6 +1,6 @@
-# Speed Game
+# Speed Game School Project
 
-Reaction speed game in Reactjs
+The object of this proiject was to refactor a vanilla JS speed game into react following the teacher's requirements. 
 
 ## Technologies used
 
