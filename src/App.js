@@ -97,10 +97,18 @@ class App extends Component {
   };
 
   handleClose = () => {
+    let pace = 0
+    if (this.state.selectedDifficulty === 'easy') {
+      pace = 1000;
+    } else if (this.state.selectedDifficulty === 'medium') {
+      pace = 910;
+    } else if (this.state.selectedDifficulty === 'hard') {
+      pace = 880;
+    }
     this.setState({ 
       showGameOver: false,
       score: 0,
-      pace: 1000,
+      pace: pace,
       startDisplay: { display: 'none' }
     });
   };

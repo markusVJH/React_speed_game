@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to bottom, rgb(39, 0, 51), rgb(20, 0, 26));
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(21, 0, 37));
   font-family: "Nova Mono", monospace;
   height: 100vh;
   color: rgb(255, 255, 255);

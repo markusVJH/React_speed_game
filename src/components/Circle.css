@@ -2,9 +2,9 @@
   display: flex;
   height: 15vh;
   width: 15vh;
-  background: #00a6bc;
   padding: 2rem;
   border-color: rgb(255, 255, 255);
+  border-width: 5px;
   border-radius: 100%;
   align-items: center;
   justify-content: center;
