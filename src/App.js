@@ -47,8 +47,8 @@ class App extends Component {
   clickHandler = (circleId) => {
     if (this.state.current === circleId - 1) {
       if (!this.state.clicked[circleId - 1]) {
-        this.state.soundEffect.pause();
-        this.state.soundEffect.play();
+        const soundEffect = new Audio(scoreSound);
+        soundEffect.play();
         this.setState((prevState) => ({
           score: prevState.score + 1,
           rounds: 0,
@@ -65,6 +65,7 @@ class App extends Component {
       this.endGame();
     }
   };
+  
   
   nextActive = () => {
     let nextActive;
