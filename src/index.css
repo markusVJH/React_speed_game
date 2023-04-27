@@ -10,7 +10,6 @@ body {
   color: rgb(255, 255, 255);
 }
 .main {
-  max-width: 1200px;
   margin: 0 auto;
 }
 .buttons {
@@ -20,11 +19,11 @@ body {
 }
 .btn {
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius: 3px;
   border-style: none;
   font-family: inherit;
   width: 10rem;
-  font-size: inherit;
+  font-size: 1.2rem;
   color: white;
   cursor: pointer;
   transition: 0.2s ease-in-out;
@@ -33,7 +32,7 @@ body {
   filter: brightness(150%);
 }
 h1 {
-  font-size: 5rem;
+  font-size: 6rem;
 }
 p {
   font-size: 1.5rem;
@@ -49,6 +48,7 @@ button.active {
 }
 .btn.diff {
   color: black;
+  font-weight: 1000;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }

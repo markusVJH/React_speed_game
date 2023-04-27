@@ -21,21 +21,18 @@ class App extends Component {
     end: new Audio(end),
     circleAmount: null,
     selectedDifficulty: null,
-    diffTitle: null
   };
 
   easyHandler = () => {
     this.setState({ 
       circleAmount: 3,
       selectedDifficulty: 'easy',
-      diffTitle: 'Easy mode'
       });
   };
   mediumHandler = () => {
     this.setState({ 
       circleAmount: 5,
       selectedDifficulty: 'medium',
-      diffTitle: 'Medium mode',
       pace: 910
       });
   }
@@ -43,7 +40,6 @@ class App extends Component {
     this.setState({ 
      circleAmount: 7,
      selectedDifficulty: 'hard',
-     diffTitle: 'Hard mode',
      pace: 880
      });
   }
@@ -130,9 +126,7 @@ class App extends Component {
 
     return (
       <div className="main">
-        <header>
-          <h1>SPEED GAME!</h1>
-        </header>
+        <h1>SPEED GAME</h1>
         <div className="difficulty">
             <button className={`btn diff easy 
               ${this.state.selectedDifficulty === 'easy' ? 'selected' : ''}`}
