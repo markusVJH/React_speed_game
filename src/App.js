@@ -154,8 +154,11 @@ class App extends Component {
     if (selectedDifficulty !== null) {
       startDisplay = {display: 'flex'}
     }
-
-
+  let select;
+  if(selectedDifficulty === null){
+    select = 'Select a difficulty to begin :)'
+  }
+  
     return (
       <div className="main">
         <h1>SPEED GAME</h1>
@@ -176,6 +179,7 @@ class App extends Component {
             Hard
             </button>
         </div>
+        <p>{select}</p>
         <p style={startDisplay}className="score">Score: {this.state.score} </p>
         <div className="circles">
           {circles.map((circleId, index) => (
