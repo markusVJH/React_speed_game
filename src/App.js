@@ -4,6 +4,8 @@ import './App.css';
 import GameOver from './components/GameOver';
 import scoreSound from './sounds/scoreSound.wav';
 import music from './sounds/music.wav';
+import music2 from './sounds/music2.wav';
+import music3 from './sounds/music3.wav';
 import end from './sounds/end.wav';
 
 class App extends Component {
@@ -115,10 +117,13 @@ class App extends Component {
   };
 
   startGame = () => {
-    const volume = 0.35;
-    const musicA = this.state.music
+    const volume = 0.3;
+    const musicA = this.state.selectedDifficulty === 'easy' ? new Audio(music) : 
+                   this.state.selectedDifficulty === 'medium' ? new Audio(music2) : 
+                   new Audio(music3);
     musicA.volume = volume;
     musicA.play();
+    this.setState({ music: musicA });
     this.nextActive();
   };
 
