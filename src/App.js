@@ -11,7 +11,9 @@ import end from './sounds/end.wav';
 class App extends Component {
   state = {
     score: 0,
-    highScore: localStorage.getItem('highScore') || 0,
+    highScoreEasy: localStorage.getItem('highScoreEasy') || 0,
+    highScoreMedium: localStorage.getItem('highScoreMedium') || 0,
+    highScoreHard: localStorage.getItem('highScoreHard') || 0,
     current: null,
     pace: 1000,
     colors: ['darkblue', 'darkred', 'darkgreen', '#8B8000', '#00a6bc', 'darkred', 'darkblue'],
@@ -20,7 +22,6 @@ class App extends Component {
     gameRunning: false,
     clicked: [false, false, false, false],
     soundEffect: new Audio(scoreSound),
-    music: new Audio(music),
     end: new Audio(end),
     circleAmount: null,
     selectedDifficulty: null,
@@ -89,10 +90,22 @@ class App extends Component {
   };
 
   endGame = () => {
-    if (this.state.score > this.state.highScore) {
-     localStorage.setItem('highScore', this.state.score);
-     this.setState({ highScore: this.state.score });
-   }
+    if (this.state.selectedDifficulty === 'easy') {
+      if (this.state.score > this.state.highScoreEasy) {
+        localStorage.setItem('highScoreEasy', this.state.score);
+        this.setState({ highScoreEasy: this.state.score });
+      }
+    } else if (this.state.selectedDifficulty === 'medium') {
+      if (this.state.score > this.state.highScoreMedium) {
+        localStorage.setItem('highScoreMedium', this.state.score);
+        this.setState({ highScoreMedium: this.state.score });
+      }
+    } else if (this.state.selectedDifficulty === 'hard') {
+      if (this.state.score > this.state.highScoreHard) {
+        localStorage.setItem('highScoreHard', this.state.score);
+        this.setState({ highScoreHard: this.state.score });
+      }
+    }
     clearTimeout(this.timeoutId);
     this.state.music.pause();
     this.state.end.play();
@@ -178,7 +191,7 @@ class App extends Component {
           ))}
         </div>
         {this.state.showGameOver && (
-          <GameOver score={this.state.score} highScore={this.state.highScore} onClose={this.handleClose} />
+          <GameOver score={this.state.score} highScoreEasy={this.state.highScoreEasy}highScoreMedium={this.state.highScoreMedium}highScoreHard={this.state.highScoreHard} onClose={this.handleClose} difficulty={this.state.selectedDifficulty} />
         )}
         <div className="buttons" style={startDisplay} >
         <button className="btn start" id="startButton"
