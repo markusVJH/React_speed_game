@@ -1,6 +1,6 @@
-# Speed Game School Project
+# Reactjs Speed Game
 
-The object of this proiject was to refactor a vanilla JS speed game into react following the teacher's requirements. 
+The goal of this project was to create a speed game using Reactjs. The game features 3 difficulty settings, and saves the highest score for all difficulties.
 
 ## Technologies used
 
