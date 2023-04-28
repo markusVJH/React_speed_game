@@ -11,6 +11,7 @@ import end from './sounds/end.wav';
 class App extends Component {
   state = {
     score: 0,
+    highScore: localStorage.getItem('highScore') || 0,
     current: null,
     pace: 1000,
     colors: ['darkblue', 'darkred', 'darkgreen', '#8B8000', '#00a6bc', 'darkred', 'darkblue'],
@@ -88,6 +89,10 @@ class App extends Component {
   };
 
   endGame = () => {
+    if (this.state.score > this.state.highScore) {
+     localStorage.setItem('highScore', this.state.score);
+     this.setState({ highScore: this.state.score });
+   }
     clearTimeout(this.timeoutId);
     this.state.music.pause();
     this.state.end.play();
@@ -173,7 +178,7 @@ class App extends Component {
           ))}
         </div>
         {this.state.showGameOver && (
-          <GameOver score={this.state.score} onClose={this.handleClose} />
+          <GameOver score={this.state.score} highScore={this.state.highScore} onClose={this.handleClose} />
         )}
         <div className="buttons" style={startDisplay} >
         <button className="btn start" id="startButton"
