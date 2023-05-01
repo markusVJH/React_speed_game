@@ -23,6 +23,9 @@ class App extends Component {
     clicked: [false, false, false, false],
     soundEffect: new Audio(scoreSound),
     end: new Audio(end),
+    music: new Audio(music),
+    music2: new Audio(music2),
+    music3: new Audio(music3),
     circleAmount: null,
     selectedDifficulty: null,
   };
@@ -108,6 +111,8 @@ class App extends Component {
     }
     clearTimeout(this.timeoutId);
     this.state.music.pause();
+    this.state.music2.pause();
+    this.state.music3.pause();
     this.state.end.play();
     this.setState({ 
       showGameOver: true,
@@ -136,12 +141,31 @@ class App extends Component {
 
   startGame = () => {
     const volume = 0.3;
-    const musicA = this.state.selectedDifficulty === 'easy' ? new Audio(music) : 
-                   this.state.selectedDifficulty === 'medium' ? new Audio(music2) : 
-                   new Audio(music3);
-    musicA.volume = volume;
-    musicA.play();
-    this.setState({ music: musicA });
+    let musicPlay = '';
+    if(this.state.selectedDifficulty === 'easy'){
+      musicPlay = this.state.music;
+      this.setState({ 
+        music: musicPlay,
+        music2: this.state.music2,
+        music3: this.state.music3
+      });
+    } else if (this.state.selectedDifficulty === 'medium') {
+      musicPlay = this.state.music2;
+      this.setState({ 
+        music: this.state.music,
+        music2: musicPlay,
+        music3: this.state.music3
+      });
+    } else if (this.state.selectedDifficulty === 'hard') {
+      musicPlay = this.state.music3;
+      this.setState({ 
+        music: this.state.music,
+        music2: this.state.music2,
+        music3: musicPlay,
+      });
+    }
+    musicPlay.volume = volume;
+    musicPlay.play();
     this.nextActive();
   };
 
