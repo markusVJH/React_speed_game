@@ -97,3 +97,8 @@ header {
   gap: 2rem;
   padding-bottom: 1.5rem;
 }
+@media (max-height: 800px) {
+  .difficulty {
+    padding-bottom: 2.5em;
+  }
+}
